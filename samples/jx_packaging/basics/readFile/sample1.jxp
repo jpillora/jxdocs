@@ -9,7 +9,7 @@
 	"startup": "index.js",
 	"execute": null,
 	"extract": false,
-	"output": "sample1.jx",
+	"output": "../out/sample1.jx",
 	"files": [
 		"index.js"
 	],

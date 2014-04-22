@@ -3,15 +3,19 @@
  */
 
 var fs = require('fs');
+var path = require('path');
 
-console.log("readFileSync ... \n");
+console.log("dirname: '%s'\n", __dirname);
 
-console.log("asset.txt", fs.readFileSync(__dirname + '/asset.txt') + "");
-console.log("other.txt", fs.readFileSync(__dirname + '/subFolder/other.txt') + "");
+console.log("readFileSync:");
 
-console.log("\nreadDirSync ... \n");
+//this line errors, unless we remove the '.' from __dirname
+console.log("  filesystem.txt: %s", fs.readFileSync(path.join(__dirname,'filesystem.txt')));
+console.log("  asset.txt: %s", fs.readFileSync(path.join(__dirname,'asset.txt')));
+console.log("  other.txt: %s", fs.readFileSync(path.join(__dirname,'subFolder','other.txt')));
 
-console.log("subFolder", fs.readdirSync(__dirname + "/subFolder"));
+console.log("\nreadDirSync:");
+console.log("  subFolder: %j", fs.readdirSync(__dirname));
 
 //below function's source won't be visible
 exports.hiddenFunction = function(){
